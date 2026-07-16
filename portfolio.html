@@ -4,255 +4,387 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chandani | Portfolio</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
-        /* Color Palette & Basic Setup */
+        /* --- Global Styles & Variables --- */
         :root {
-            --bg-color: #faf9f6; /* Soft off-white */
-            --text-color: #4a4a4a; /* Soft dark grey for readability */
-            --accent-pastel: #f3e8e0; /* Soft blush peach */
-            --accent-dark: #d5bdaf; /* Deeper pastel brown */
-            --nav-bg: rgba(250, 249, 246, 0.9);
+            --bg-color: #fcf9f5;        /* Soft beige background */
+            --accent-pink: #f7d6d0;    /* Pastel pink */
+            --text-dark: #232323;      /* Soft black/charcoal */
+            --text-muted: #666666;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --shadow: 0 8px 32px 0 rgba(247, 214, 208, 0.2);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Lato', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        h1, h2, h3, .logo {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            color: #333;
-        }
-
-        /* Navigation */
-        nav {
+        /* --- Navigation --- */
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 10%;
-            position: fixed;
+            padding: 2rem 10%;
+            position: absolute;
             width: 100%;
             top: 0;
-            background: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
+            z-index: 10;
         }
 
         .logo {
-            font-size: 24px;
-            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent-pink);
         }
 
         .nav-links {
-            list-style: none;
             display: flex;
-            gap: 30px;
+            list-style: none;
+            gap: 3rem;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
-            font-size: 16px;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 400;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent-dark);
+            color: var(--text-muted);
         }
 
-        /* Sections */
-        section, header {
+        /* --- Hero Section --- */
+        .hero-section {
             min-height: 100vh;
-            padding: 100px 10%;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            gap: 5rem;
+            padding-top: 8rem;
         }
 
-        h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-            position: relative;
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
         }
 
-        h2::after {
-            content: '';
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-dark);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--bg-color), var(--accent-pastel));
-        }
-
-        .hero h1 {
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 4rem;
-            margin-bottom: 20px;
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 2rem;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #666;
+        .italic-text {
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 480px;
         }
 
         .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--text-dark);
+            color: var(--white);
             text-decoration: none;
-            padding: 12px 30px;
-            background-color: var(--accent-dark);
-            color: #fff;
-            border-radius: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(213, 189, 175, 0.4);
+            background-color: #404040;
         }
 
-        /* Cards (About & Hobbies) */
-        .card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 800px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
-            font-size: 1.1rem;
-        }
-
-        /* Skills Section */
-        .skills-container {
+        .hero-image-container {
+            flex: 1;
             display: flex;
-            gap: 30px;
+            justify-content: flex-end;
+        }
+
+        .hero-img {
+            width: 85%;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 40px 40px 500px 40px; /* Playful, artistic asymmetry */
+            box-shadow: var(--shadow);
+        }
+
+        /* --- Section Formatting --- */
+        section {
+            padding: 8rem 10%;
+        }
+
+        .section-title {
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* --- Glassmorphism Styles --- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            transition: transform 0.1s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 12px 40px 0 rgba(247, 214, 208, 0.4);
+        }
+
+        /* --- About Section Layout --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .about-grid h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .about-grid p {
+            color: var(--text-muted);
+        }
+
+        /* --- Skills Section Layout --- */
+        .skills-grid {
+            display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            gap: 1.5rem;
+            max-width: 800px;
         }
 
-        .skill-card {
-            background: #fff;
-            padding: 30px;
+        .skill-tag {
+            background-color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        /* --- Projects Section Layout --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .project-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+        }
+
+        .project-badge {
+            display: inline-block;
+            background-color: var(--accent-pink);
+            padding: 0.3rem 1rem;
             border-radius: 20px;
-            width: 300px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .skill-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .skill-card h3 {
-            margin-bottom: 15px;
-            color: var(--accent-dark);
-        }
-
-        /* Footer */
+        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 30px;
-            background-color: var(--accent-pastel);
-            color: var(--text-color);
+            padding: 4rem;
+            background-color: #f7f2eb;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        /* Smooth Animation Classes */
-        .hidden {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
-        }
-
-        .show {
-            opacity: 1;
-            transform: translateY(0);
+        /* --- Responsive Adjustments --- */
+        @media(max-width: 968px) {
+            .hero-section {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 10rem;
+            }
+            .hero-image-container {
+                justify-content: center;
+                width: 100%;
+            }
+            .hero-img {
+                width: 100%;
+                height: 350px;
+            }
+            .hero-content p {
+                margin: 0 auto 2.5rem;
+            }
+            .about-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Chandani.</div>
+    <nav class="navbar">
+        <div class="logo">C<span>.</span></div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
+            <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#projects">Projects</a></li>
         </ul>
     </nav>
 
-    <header id="home" class="hero hidden">
+    <section id="hero" class="hero-section">
         <div class="hero-content">
-            <h1>Hello, I'm Chandani</h1>
-            <p>A hardworking student pursuing Computer Science & Mathematics.</p>
-            <a href="#about" class="btn">Get to know me</a>
+            <h1>Art meets <br><span class="italic-text">Digital Design</span></h1>
+            <p>Hi, I'm Chandani. A Class 12th graduate pursuing Arts, dedicated to creating premium, aesthetic web experiences and beautiful illustrations.</p>
+            <a href="#projects" class="btn">View My Work</a>
         </div>
-    </header>
-
-    <section id="about" class="hidden">
-        <h2>About Me</h2>
-        <div class="card">
-            <p>I recently passed my 12th class and am currently pursuing my passion for Computer Science and Mathematics. I am a highly motivated and hardworking individual, always eager to learn new concepts, solve problems, and grow both personally and professionally.</p>
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="Aesthetic Art Workspace" class="hero-img">
         </div>
     </section>
 
-    <section id="skills" class="hidden">
-        <h2>My Skills</h2>
-        <div class="skills-container">
-            <div class="skill-card">
-                <h3>Communication</h3>
-                <p>Strong verbal and written communication skills, allowing me to express ideas clearly and collaborate effectively.</p>
+    <section id="about" class="about-section">
+        <div class="section-title">
+            <h2>My Story</h2>
+            <p>A glimpse into my world of creativity</p>
+        </div>
+        <div class="about-grid">
+            <div class="glass-card tilt-card">
+                <h3>Education</h3>
+                <p>Recently completed Class 12th. Currently pursuing higher studies in Arts to blend traditional techniques with modern digital layouts.</p>
             </div>
-            <div class="skill-card">
-                <h3>Computer Basics</h3>
-                <p>Proficient in Microsoft Word, Excel, and PowerPoint for organizing data and creating presentations.</p>
+            <div class="glass-card tilt-card">
+                <h3>Hobbies</h3>
+                <p>Drawing, sketching, and constantly learning new digital design skills. I love bringing imagination to life using soft textures and clean spaces.</p>
             </div>
         </div>
     </section>
 
-    <section id="hobbies" class="hidden">
-        <h2>Hobbies</h2>
-        <div class="card hobby-card">
-            <h3>🎨 Drawing</h3>
-            <p>When I'm not studying tech or math, you can find me drawing. It helps me express my creativity and keeps my mind fresh and focused.</p>
+    <section id="skills" class="skills-section">
+        <div class="section-title">
+            <h2>Capabilities</h2>
+            <p>What I bring to the table</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-tag">Communication Skills</div>
+            <div class="skill-tag">MS Word</div>
+            <div class="skill-tag">MS PowerPoint</div>
+            <div class="skill-tag">MS Excel</div>
+            <div class="skill-tag">UI/UX Layouts</div>
+            <div class="skill-tag">Drawing & Sketching</div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="section-title">
+            <h2>Featured Projects</h2>
+            <p>Recent aesthetic concepts</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card glass-card tilt-card">
+                <div class="project-badge">Concept</div>
+                <h3>Education Website</h3>
+                <p>A premium, clean, and modern user interface designed for a creative coaching institute featuring soft pastels and ample white space.</p>
+            </div>
+            <div class="project-card glass-card tilt-card">
+                <div class="project-badge">Design</div>
+                <h3>Aesthetic Landing Page</h3>
+                <p>A beautiful landing page layout utilizing Playfair typography, subtle shadows, and a minimalist design system.</p>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Chandani. Designed with passion.</p>
+        <p>&copy; 2026 Chandani. Crafted with passion and elegance.</p>
     </footer>
 
     <script>
-        // This creates a smooth fade-in effect when elements scroll into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
+        // Select all cards meant to react to mouse movement
+        const cards = document.querySelectorAll('.tilt-card');
+
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                // Determine card's position on screen
+                const rect = card.getBoundingClientRect();
+                
+                // Track mouse coordinates relative to the center of the card
+                const x = e.clientX - rect.left - (rect.width / 2);
+                const y = e.clientY - rect.top - (rect.height / 2);
+                
+                // Adjust numbers to scale tilt intensity
+                const rotationX = -(y / 15);
+                const rotationY = (x / 15);
+                
+                // Render the transform
+                card.style.transform = `perspective(1000px) rotateX(${rotationX}deg) rotateY(${rotationY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            // Smoothly reset tilt transformation when mouse moves away
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
             });
         });
-
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
