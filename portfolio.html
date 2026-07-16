@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandani | Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Color Palette & Basic Setup */
+        :root {
+            --bg-color: #faf9f6; /* Soft off-white */
+            --text-color: #4a4a4a; /* Soft dark grey for readability */
+            --accent-pastel: #f3e8e0; /* Soft blush peach */
+            --accent-dark: #d5bdaf; /* Deeper pastel brown */
+            --nav-bg: rgba(250, 249, 246, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-dark);
+        }
+
+        /* Sections */
+        section, header {
+            min-height: 100vh;
+            padding: 100px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-dark);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-color), var(--accent-pastel));
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 30px;
+            background-color: var(--accent-dark);
+            color: #fff;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(213, 189, 175, 0.4);
+        }
+
+        /* Cards (About & Hobbies) */
+        .card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            font-size: 1.1rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .skill-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            width: 300px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+            color: var(--accent-dark);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--accent-pastel);
+            color: var(--text-color);
+        }
+
+        /* Smooth Animation Classes */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Chandani.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero hidden">
+        <div class="hero-content">
+            <h1>Hello, I'm Chandani</h1>
+            <p>A hardworking student pursuing Computer Science & Mathematics.</p>
+            <a href="#about" class="btn">Get to know me</a>
+        </div>
+    </header>
+
+    <section id="about" class="hidden">
+        <h2>About Me</h2>
+        <div class="card">
+            <p>I recently passed my 12th class and am currently pursuing my passion for Computer Science and Mathematics. I am a highly motivated and hardworking individual, always eager to learn new concepts, solve problems, and grow both personally and professionally.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="hidden">
+        <h2>My Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3>Communication</h3>
+                <p>Strong verbal and written communication skills, allowing me to express ideas clearly and collaborate effectively.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Computer Basics</h3>
+                <p>Proficient in Microsoft Word, Excel, and PowerPoint for organizing data and creating presentations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies" class="hidden">
+        <h2>Hobbies</h2>
+        <div class="card hobby-card">
+            <h3>🎨 Drawing</h3>
+            <p>When I'm not studying tech or math, you can find me drawing. It helps me express my creativity and keeps my mind fresh and focused.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Chandani. Designed with passion.</p>
+    </footer>
+
+    <script>
+        // This creates a smooth fade-in effect when elements scroll into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
